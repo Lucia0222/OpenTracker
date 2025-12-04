@@ -1,26 +1,3 @@
-import { MonitoringOptions } from '../types/src/core/monitering-options'
-import { MonitoringCore } from './core/monitoring-core'
-
-/**
- * 初始化监控SDK
- * @param options 监控配置选项
- * @returns 监控核心实例
- */
-export function initMonitoring(options: MonitoringOptions) {
-  const core = new MonitoringCore(options)
-  core.init()
-  return core
-}
-
-/**
- * 基础事件跟踪函数
- * @param event 事件名称
- * @param data 事件数据
- */
 export function track(event: string, data?: any) {
   console.log('Tracking:', event, data)
 }
-
-// 导出核心类和类型
-export { MonitoringCore }
-export type { MonitoringOptions } from '../types/src/core/monitering-options'
