@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "OpenTracker Admin - 管理后台",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview",
     "mock": "json-server --watch mock/db.json --port 3001"
