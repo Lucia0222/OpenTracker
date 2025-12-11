@@ -1,6 +1,7 @@
 import { EventTypes } from '../../../common'
 import { QueueManager } from './queue'
 import { TrackerConfig, QueueConfig } from '../../../types/src/core/config'
+import { WhiteScreenInfo } from '../../../types/src/plugins/white-screen'
 
 export class Tracker {
   private static instance: Tracker
@@ -146,6 +147,12 @@ export const reportError = (error: Error | string, extra?: Record<string, any>):
     ...extra,
   }
   tracker.report('error', errorData, true)
+}
+
+// 白屏错误自动上报方法
+export const reportWhiteScreen = (data: WhiteScreenInfo): void => {
+  const tracker = getTracker()
+  tracker.report('white_screen', data, true)
 }
 
 // 全局手动事件上报便捷函数：直接调用单例实例的trackEvent方法
